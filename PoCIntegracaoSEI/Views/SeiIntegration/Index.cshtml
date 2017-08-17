@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    
+    var docs = (Dictionary<string, Tuple<string, string>>)ViewBag.RetornoInclusaoDocumentos;
+}
+
+<h2>Index</h2>
+<p>ID Processo: <strong>@ViewBag.IdProcesso</strong></p>
+<p>Link de Acesso: <strong>@ViewBag.LinkAcesso</strong></p>
+<p>Procedimento Formatado: <strong>@ViewBag.ProcedimentoFormatado</strong></p>
+<h1>Documentos</h1>
+@foreach(var key in docs.Keys)
+{
+    <p>Nome: <strong>@docs[key].Item1</strong></p>
+    <ul>
+        <li>
+            <p>Id <strong>@key</strong></p>
+        </li>
+        <li>
+            <p>Link de Acesso: <strong>@docs[key].Item2</strong></p>
+        </li>
+    </ul>
+}
